@@ -12,7 +12,8 @@ import { MailService } from './mail.service'
         SimpleFormComponent
     ],
     imports: [
-        BrowserModule
+        BrowserModule,
+        FormsModule
     ],
     providers: [
         { provide: 'mail', useClass: MailService },

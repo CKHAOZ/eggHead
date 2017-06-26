@@ -1,13 +1,18 @@
-﻿import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 
 @Component({
+    //encapsulation: ViewEncapsulation.None,
     selector: 'app-simple-form',
     templateUrl: './simple-form.component.html',
     styleUrls: ['./simple-form.component.css']
 })
 export class SimpleFormComponent implements OnInit {
 
-    constructor() { }
+    ismousedown;
+
+    constructor() {
+        //setInterval(()=> this.message = Math.random().toString(), 1000);
+     }
 
     ngOnInit() { }
 
@@ -16,4 +21,6 @@ export class SimpleFormComponent implements OnInit {
         console.log(inputValue);
     }
 
+    @Input() message;
+    @Output() update = new EventEmitter();
 }

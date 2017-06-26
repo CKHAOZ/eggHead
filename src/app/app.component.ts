@@ -1,4 +1,5 @@
 ﻿import { Component, Inject } from '@angular/core';
+// import { MailService } from './mail.service';
 
 @Component({
     selector: 'app-root',
@@ -13,4 +14,8 @@ export class AppComponent {
         @Inject('mail') private mail,
         @Inject('api') private api
     ) { }
+
+    onUpdate(id, text){
+        this.mail.update(id, text);
+    }
 }

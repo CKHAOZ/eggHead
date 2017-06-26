@@ -1,6 +1,12 @@
-﻿<div>
-  <input #myInput type="text">
-  <button (click)="onClick($event, myInput.value)">Click me!</button>
+﻿<input #myInput type="text"[(ngModel)]="message"
+  [ngClass] = "{mousedown:ismousedown}"
+  (mousedown)="ismousedown = true"
+  (mouseup)="ismousedown = false"
+  (mouseleave)="ismousedown = false"
+>
 
-  <button (mouseover)="onClick($event, myInput.value)">Mouse over</button>
-</div>
+<button class="white bg-black code" (click)="onClick($event, myInput.value)">Click me!</button>
+
+<button (mouseover)="onClick($event, myInput.value)">Mouse over</button>
+
+<button (click)="update.emit({text:message})">Update event!</button>
